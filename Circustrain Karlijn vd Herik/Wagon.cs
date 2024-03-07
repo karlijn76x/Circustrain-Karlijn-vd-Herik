@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,40 +9,52 @@ namespace Circustrain_Karlijn_vd_Herik
 {
 	public class Wagon
 	{
-		private int capacity = 10;
-		private List<Animal> animals;
+		private int TotalCapacity = 10;
+		//public readonly List<Animal> Animals;
+        public List<Animal> Animals { get; private set; }
 
-		public Wagon()
+        public Wagon()
 		{
-			animals = new List<Animal>();
+			Animals = new List<Animal>();
+			
 		}
 
-		public bool TryAddAnimal(Animal animal)
+		public bool TryAddAnimal(Animal newAnimal)
 		{
-			if (animals.Sum(a => (int)a.Size) + (int)animal.Size <= capacity && CanAddAnimal(animal))
+			if (EnoughRoomForAnimal(newAnimal) && IsFriendlyAnimal(newAnimal))
 			{
-				animals.Add(animal);
+				Animals.Add(newAnimal);
 				return true;
 			}
 			return false;
 		}
 
-		private bool CanAddAnimal(Animal newAnimal)
-		{ 
-			foreach (var animal in animals)
+		public bool EnoughRoomForAnimal(Animal newAnimal)
+		{
+			return Animals.Sum(a => (int)a.Size) + (int)newAnimal.Size <= TotalCapacity;
+		}
+
+		public bool IsFriendlyAnimal(Animal newAnimal)
+		{
+			foreach (var animal in Animals)
 			{
-				if (newAnimal.EatsMeat && !animal.EatsMeat && (int)newAnimal.Size <= (int)animal.Size)
+				if (newAnimal.EatsMeat)
 				{
-					return false;
-				}
-				if (!newAnimal.EatsMeat && animal.EatsMeat && (int)newAnimal.Size >= (int)animal.Size)
-				{
-					return false;
+					if ((int)newAnimal.Size >= (int)animal.Size)
+					{
+						return false;
+					}
+					else
+					{
+						if (animal.EatsMeat && (int)newAnimal.Size <= (int)animal.Size)
+						{
+							return false;
+						}	
+					}
 				}
 			}
 			return true;
 		}
 	}
-
 }
 
