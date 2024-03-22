@@ -15,25 +15,32 @@ namespace Circustrain_Karlijn_vd_Herik
 			wagons = new List<Wagon>();
 		}
 
-		public void AddAnimalToWagon(Animal animal)
+		public void AddAnimalsToTrain(List<Animal> animals)
 		{
-			bool added = false;
+			animals = animals.OrderByDescending(a => a.Size)
+				.ThenByDescending(a => a.EatsMeat)
+				.ToList();
 
-			foreach(Wagon wagon in wagons) {
+			foreach (var animal in animals)
+			{ 
+				bool added = false;
+				foreach(Wagon wagon in wagons) {
 
-				if (wagon.TryAddAnimal(animal))
-				{
+					if (wagon.TryAddAnimal(animal))
+					{
 					added = true;
 					break;
+					}
 				}
-			}
 
-			if (!added)
-			{
-				Wagon newWagon = new Wagon();
-				newWagon.TryAddAnimal(animal);
-				wagons.Add(newWagon);
-			}
+                if (!added)
+                {
+                    Wagon newWagon = new Wagon();
+                    newWagon.TryAddAnimal(animal);
+                    wagons.Add(newWagon);
+                }
+            }
+			
 			DisplayTrain();
 		}
 
