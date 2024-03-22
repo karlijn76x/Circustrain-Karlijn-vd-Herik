@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Circustrain Karlijn vd Herik", "Circustrain Karlijn vd Herik\Circustrain Karlijn vd Herik.csproj", "{A3A2369F-41D7-4BEB-8AA8-26FAA24E9490}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Circustrain Karlijn vd Herik", "Circustrain Karlijn vd Herik\Circustrain Karlijn vd Herik.csproj", "{A3A2369F-41D7-4BEB-8AA8-26FAA24E9490}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Circustrain_Testing", "Circustrain_Testing\Circustrain_Testing.csproj", "{829B155B-8265-4CD0-9FA7-944B15CE84D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A3A2369F-41D7-4BEB-8AA8-26FAA24E9490}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3A2369F-41D7-4BEB-8AA8-26FAA24E9490}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3A2369F-41D7-4BEB-8AA8-26FAA24E9490}.Release|Any CPU.Build.0 = Release|Any CPU
+		{829B155B-8265-4CD0-9FA7-944B15CE84D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{829B155B-8265-4CD0-9FA7-944B15CE84D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{829B155B-8265-4CD0-9FA7-944B15CE84D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{829B155B-8265-4CD0-9FA7-944B15CE84D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

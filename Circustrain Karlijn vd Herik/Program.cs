@@ -7,8 +7,11 @@ namespace Circustrain_Karlijn_vd_Herik
         {
             TrainManagement trainManagement = new TrainManagement();
 
-            Console.WriteLine("Hello! Would you like to add an animal to the train? (Y/N)");
+
+            Console.WriteLine("Hello! Would you like to add an animal to the list? (Y/N)");
             string answer = Console.ReadLine();
+
+            List<Animal> animalsToAdd = new List<Animal>(); 
 
             while (answer.ToUpper() == "Y")
             {
@@ -28,13 +31,18 @@ namespace Circustrain_Karlijn_vd_Herik
                     size = AnimalSize.Large;
 
                 Animal newAnimal = new Animal(name, size, eatsMeat);
-                trainManagement.AddAnimalToWagon(newAnimal);
+                
+                animalsToAdd.Add(newAnimal);
 
-                Console.WriteLine("Animal added to the train!");
+                Console.WriteLine("Animal added to the list!");
 
-                Console.WriteLine("Do you want to add another animal to the train? (Y/N)");
+                Console.WriteLine("Do you want to add another animal to the list? If you press N all animals will be added to the train. (Y/N)");
                 answer = Console.ReadLine();
             }
+
+            Console.WriteLine("These are all the animals in the train sorted by size and their diet: ");
+
+            trainManagement.AddAnimalsToTrain(animalsToAdd);
         }    
 	}
 }

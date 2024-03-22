@@ -17,7 +17,6 @@ namespace Circustrain_Karlijn_vd_Herik
 	{
 		public string Name { get; private set; }
 		public AnimalSize Size { get; private set; }
-
 		public bool EatsMeat { get; private set; }
 
 		public Animal(AnimalSize size, bool eatsMeat) : this("", size, eatsMeat)
